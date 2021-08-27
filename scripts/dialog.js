@@ -3,9 +3,10 @@ Events.on(ClientLoadEvent, () => {
     dialog.addCloseButton();
     let sprites = require("sprites");
 
-    Object.keys(sprites).forEach(sprite => {
-        Core.atlas.find(sprite + "-default").set(Core.atlas.find(sprite));
-        dialog.cont.pane(p1 => {
+    dialog.cont.pane(p1 => {
+        Object.keys(sprites).forEach(sprite => {
+            Core.atlas.addRegion(sprite + "-default", Core.atlas.find(sprite));
+
             p1.button(sprite, new TextureRegionDrawable(Core.atlas.find(sprite)), () => {
                 let selectionDialog = new BaseDialog(sprite);
                 selectionDialog.addCloseButton();
