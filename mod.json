@@ -1,0 +1,8 @@
+{
+    "displayName":"Texture Manager",
+    "name":"texture-manager",
+    "author":"Pietro",
+    "version":"1.0",
+    "minGameVersion":"105",
+    "hidden":true
+}
