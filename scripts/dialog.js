@@ -4,18 +4,19 @@ Events.on(ClientLoadEvent, () => {
     let sprites = require("sprites");
 
     Object.keys(sprites).forEach(sprite => {
+        Core.atlas.find(sprite + "-default").set(Core.atlas.find(sprite));
         dialog.cont.pane(p1 => {
             p1.button(sprite, new TextureRegionDrawable(Core.atlas.find(sprite)), () => {
                 let selectionDialog = new BaseDialog(sprite);
                 selectionDialog.addCloseButton();
                 selectionDialog.cont.pane(p2 => {
-                    p2.cont.button("Default", Icon.star, () => {
-                        Core.atlas.find(sprite).set(Core.atlas.find(sprite));
+                    p2.button("Default", Icon.star, () => {
+                        Core.atlas.find(sprite).set(Core.atlas.find(sprite + "-default"));
                     }).width(200);
                     p2.row();
 
                     sprites[sprite].forEach(spr => {
-                        selectionDialog.cont.button(spr, new TextureRegionDrawable(Core.atlas.find(spr)), () => {
+                        p2.button(spr, new TextureRegionDrawable(Core.atlas.find(spr)), () => {
                             Core.atlas.find(sprite).set(Core.atlas.find(spr));
                         }).width(200);
                         p2.row();
