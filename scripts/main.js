@@ -1,5 +1,5 @@
+let sprites = require("sprites");
 Events.on(ClientLoadEvent, () => {
-    let sprites = require("sprites");
     let dialog = new BaseDialog("Texture Manager");
     let searchFilter = Object.keys(sprites)
     let pane1;
