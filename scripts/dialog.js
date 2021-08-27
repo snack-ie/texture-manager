@@ -1,7 +1,7 @@
 Events.on(ClientLoadEvent, () => {
     let dialog = new BaseDialog("Texture Manager");
     dialog.addCloseButton();
-    let sprites = require("texture-manager/sprites");
+    let sprites = require("sprites");
 
     Object.keys(sprites).forEach(sprite => {
         Core.atlas.find(sprite + "-default").set(Core.atlas.find(sprite));
