@@ -4,7 +4,12 @@ function setup(body) {
         /*
         if (!globalConfig[sprite]) {
         */
+        if (sprite in spriteArray) {
+            print("oh.")
+            body[sprite].forEach(b => spriteArray[sprite].push(b))
+        } else {
             spriteArray[sprite] = body[sprite];
+        }
         /*
         } else {
             global.spriteConfig[sprite].push.apply(body[sprite])
